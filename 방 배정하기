@@ -1,0 +1,27 @@
+#https://level.goorm.io/exam/48128/%EB%B0%A9-%EB%B0%B0%EC%A0%95%ED%95%98%EA%B8%B0/quiz/1
+k=input()
+g=0
+l=k.split()
+a=int(l[0])
+b=int(l[1])
+c=int(l[2])
+n=int(l[3])
+r=[]
+r.append(a)
+r.append(b)
+r.append(c)
+w=sorted(r, reverse = True)
+running=True
+for x in reversed(range(n//w[0]+1)):
+	n1=n-w[0]*x
+	for y in reversed(range(n1//w[1]+1)):
+		n2=n1-w[1]*y
+		for z in reversed(range(n2//w[2]+1)):
+			n3=n2-w[2]*z
+			if n3==0:
+				g=1
+				running=False
+if g==1:
+	print("1")
+else:
+	print("0")
