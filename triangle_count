@@ -1,0 +1,26 @@
+#coding=utf-8
+
+
+
+
+def fact(k):
+    asdf=1
+    for i in range(1,k+1):
+        asdf=asdf*i
+    return asdf
+def nCr(n,r):
+    """
+              n!
+    nCr = ____________
+          (n-r)! * r!
+    """
+    asdfasdf=0
+    asdfasdf=fact(n)/fact(n-r)/fact(r)
+    return asdfasdf
+
+
+
+q=int(input())
+tri=3*q-3
+ans=int(nCr(tri,3)-3*nCr(q,3))
+print(ans)
