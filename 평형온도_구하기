@@ -1,0 +1,35 @@
+#coding=utf-8
+'''
+
+이것은 두 비열이 다른 용액의 평형온도를 구하는 프로그램입니다.
+열용량 공식은 Q=cm델타t 로 구하였습니다.
+내분점 공식은  a * m + b * n  을 이용하였습니다.
+            --------------
+                m + n
+구하는 방식은 비열과 질량의 곱의 비로 내분점 공식을 이용하여 평형온도를 구하였습니다.
+입력 형식 = 용액a의비열 용액b의비열 용액a의질량 용액b의질량 용액a의초기온도 용액b의 초기온도
+입력 ex = 0.4 0.2 2 1 80 30
+출력 형식 = 용액a,b의 평형온도
+출력 ex = 70.0
+
+'''
+
+anslist=list(input().split())
+ac=float(anslist[0])  #a의 비열
+bc=float(anslist[1])  #b의 비열
+am=int(anslist[2])  #a의 질량
+bm=int(anslist[3])  #b의 질량
+at=int(anslist[4])  #a의 초기온도
+bt=int(anslist[5])  #b의 초기온도
+k=[]  #a와 b의 비
+acm=ac*float(am)
+bcm=bc*float(bm)
+if acm>=bcm:
+    k.append(1.0)
+    k.append(acm/bcm)  #k=[1,acm/bcm]
+else:
+    k.append(bcm/acm)
+    k.append(1.0)    #k=[bcm/acm,1]
+print(k)
+ans=(at*k[1]+bt*k[0])/(k[0]+k[1])
+print(ans)
