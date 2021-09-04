@@ -1,0 +1,10 @@
+n=int(input())
+a=[]
+for i in range(n):
+    k=int(input())
+    a.append(k)
+atk1=a[0]
+running=True
+while running:
+    for i in range(2,n):
+        if atk1>a[i]:
