@@ -1,0 +1,54 @@
+#coding=utf-8
+'''
+
+for문을 이용한 문제 8개이다
+
+'''
+mode=0
+while True:
+    ans=int(input("\nfor문 연습  번호를 입력하세요"))
+    if ans==1:
+    #1
+        for i in range(1,11):
+            print(i)
+    elif ans==2:
+    #2
+        for i in range(1,11):
+            print(2*i)
+
+    elif ans==3:
+    #3
+        for i in range(1,11):
+            print(1+5*i)
+
+    elif ans==4:
+        for i in range(1,11):
+            for j in range(1,6):
+                print(i*j,end=" ")
+            print(" ")
+
+    elif ans==5:
+        for i in range(1,11):
+            for j in range(1,6):
+                print(i*i+j*j,end=" ")
+            print(" ")
+
+    elif ans==6:
+        for i in range(1,11):
+            for j in range(1,4):
+                print(i,end=" ")
+                print(j)
+
+    elif ans==7:
+        for i in range(1, 11):
+            for j in range(1, 4):
+                print(i*i, end=" ")
+                print(j*j)
+
+    elif ans==8:
+        for i in range(1,4):
+            for j in range(1, 4):
+                for k in range(1, 4):
+                    print(i,end=" ")
+                    print(j,end=" ")
+                    print(k)
