@@ -1,0 +1,48 @@
+#coding=utf-8
+from math import comb
+n,m,k=map(int,input().split())
+if k!=0:
+    a=1
+    left=0
+    down=0
+    while a!=k:
+        if k>a+m:
+            down+=1
+            a+=m
+        else:
+            left+=1
+            a+=1
+    if left>=down:
+        b=left
+        s=down
+    else:
+        b=down
+        s=left
+    ans1=comb(b+s,s)
+
+    a=k
+    left=0
+    down=0
+    while a!=n*m:
+        if n*m>a+m:
+            down+=1
+            a+=m
+        else:
+            left+=1
+            a+=1
+    if left>=down:
+        b=left
+        s=down
+    else:
+        b=down
+        s=left
+    ans2=comb(b+s,s)
+    print(ans1*ans2)
+else:
+    if n>=m:
+        b=n
+        s=m
+    else:
+        b=m
+        s=n
+    print(comb(b+s-2,s-1))
