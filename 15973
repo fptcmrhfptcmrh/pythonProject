@@ -1,0 +1,23 @@
+#15973
+ax1,ay1,ax2,ay2=map(int,input().split())
+bx1,by1,bx2,by2=map(int,input().split())
+g=ax2-ax1+bx2-bx1
+s=ay2-ay1+by2-by1
+gab=max(abs(ax2-bx1),abs(ax1-bx2))
+sab=max(abs(ay2-by1),abs(ay1-by2))
+if gab==g:
+    if sab==s:
+        print("POINT")
+    elif sab<s:
+        print("LINE")
+    elif sab>s:
+        print("NULL")
+elif gab<g:
+    if sab==s:
+        print("LINE")
+    elif sab<s:
+        print("FACE")
+    elif sab>s:
+        print("NULL")
+else:
+    print("NULL")
