@@ -1,0 +1,25 @@
+#백준 15971
+#coding=utf-8
+import sys
+sys.setrecursionlimit(10**5)
+def dfs(idx,sum,max_value):
+    global finish,r2,visited,lst
+    if finish:
+        return
+    if idx==r2:
+        finish=True
+        print(sum-max_value)
+        return
+    visited[idx-1]=True
+    for i,distance in lst[idx]:
+        if not visited[i]:
+            dfs(i,sum+distance,max(max_value,distance))
+n,r1,r2=map(int,input().split())
+finish=False
+visited=[False]*(n+1)
+lst=[[] for _ in range(n+1)]
+for _ in range(n-1):
+    a,b,c=map(int,input().split())
+    lst[a].append((b,c))
+    lst[b].append((a,c))
+dfs(r1,0,0)
