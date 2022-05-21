@@ -1,0 +1,72 @@
+#coding=utf-8
+class ListNode:
+    def __init__(self,newItem,nextNode):
+        self.item=newItem
+        self.next=nextNode
+class LinkedListBasic:
+    def __init__(self):
+        self.__head=ListNode('dummy',None)
+        self.__numItems=0
+    def __getNode(self,i):
+        cur=self.__head
+        for index in range(i+1):
+            cur=cur.next
+        return cur
+    def append(self,newItem):
+        prev=self.__getNode(self.__numItems-1)
+        newNode=ListNode(newItem,prev.next)
+        prev.next=newNode
+    def insert(self,i,newItem):
+        if i>=0 and i<=self.__numItems:
+            prev=self.__getNode(i-1)
+            newNode=ListNode(newItem,prev.next)
+            prev.next=newNode
+            self.__numItems+=1
+        else:
+            print("index%d : outof bound in insert()"%i)
+    def printList(self):
+        cur=self.__head.next
+        while cur!=None:
+            print(cur.item,end=' ')
+            cur=cur.next
+        print()
+    def pop(self,i=None):
+        if (i==None) : i=self.__numItems-1
+        if (i>=0 and i<=self.__numItems-1):
+            prev=self.__getNode(i-1)
+            cur=prev.next
+            retItem=cur.item
+            self.__numItems-=1
+            return retItem
+            self.__numItems-=1
+        else:
+            return None
+    def __findNode(self,x):
+        prev=self.__head
+        cur=prev.next
+        while cur!=None:
+            if cur.item==x:
+                return (prev,cur)
+            else:
+                prev=cur; cur=cur.next
+        return (None,None)
+    def remove(self,x):
+        (prev,cur)=self.__findNode(x)
+        if cur!=None:
+            prev.next=cur.next
+            self.__numItems-=1
+    def isEmpty(self):
+        return self.__numItems==0
+    def size(self):
+        return self.__numItems
+    def clear(self):
+        self.__head=ListNode('dummy',None)
+        self.__numItems=0
+#테스
+if __name__=='__main__':
+    a=LinkedListBasic()
+    a.append(4)
+    a.append(3)
+    a.pop()
+    a.insert(0,1)
+    a.printList()
