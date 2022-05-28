@@ -1,0 +1,15 @@
+#https://www.acmicpc.net/problem/1620
+
+
+n,m=map(int,input().split())
+pdict={}
+for i in range(n):
+    k=input()
+    pdict[k]=i
+rdict = dict(map(reversed, pdict.items()))
+for _ in range(m):
+    q=input()
+    if ord(q[0])>=48 and ord(q[0])<=57:
+        print(rdict.get(int(q)-1))
+    else:
+        print(pdict.get(q)+1)
