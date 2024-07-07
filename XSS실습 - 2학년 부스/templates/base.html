@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flask 게시판</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1><a href="{{ url_for('index') }}">Flask 게시판</a></h1>
+      <div class="content">{% block content %} {% endblock %}</div>
+      <div class="navigation">
+        {% if request.cookies.get('username') %}
+        <a href="{{ url_for('create') }}" class="create-button">글 작성하기</a>
+        <a href="{{ url_for('logout') }}" class="logout-button">로그아웃</a>
+        {% else %}
+        <a href="{{ url_for('login') }}" class="login-button">로그인</a>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>
